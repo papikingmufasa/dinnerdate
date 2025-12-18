@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Small Question 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f6c1cc;
+      --lavender: #e6d9ff;
+      --cream: #fff7ec;
+      --text: #4a4a4a;
+      --accent: #ff8fab;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--cream), var(--lavender));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .love-font {
+      font-family: 'Great Vibes', cursive;
+      text-shadow: 2px 2px 0 rgba(255, 143, 171, 0.35),
+                   4px 4px 0 rgba(230, 217, 255, 0.6);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    h1, h2 {
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 3rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 1rem auto;
+      max-width: 600px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 22px;
+      padding: 2rem 1.5rem;
+      margin-top: 2.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      animation: slideUp 1s ease forwards;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .yes {
+      background: var(--accent);
+      color: white;
+    }
+
+    .talk {
+      background: white;
+      color: var(--text);
+      border: 2px solid var(--accent);
+    }
+
+    .response {
+      margin-top: 1.8rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .response.show {
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.9rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <h1 class="love-font">Hey Mwape Mukulalwendo ❤</h1>
+    
+
+    <!-- Why I'm Asking -->
+    <div class="card">
+      <h2 class="love-font">Why I’m Asking</h2>
+      <p>
+        I genuinely enjoy the way you exist in the world — the little things, the conversations, the calm you bring without even trying. 
+        It felt right to be honest instead of overthinking it.
+      </p>
+    </div>
+
+    <!-- The Invite -->
+    <div class="card">
+      <h2 class="love-font">The Invite</h2>
+      <p>
+        I’d love to take you out for dinner on 28th December, 2025 
+      </p>
+    </div>
+
+    <!-- The Big Question -->
+    <div class="card">
+      <h2 class="love-font">Would you go on a date with me?</h2>
+      <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes 💖</button>
+        <button class="talk" onclick="sayTalk()">Let’s talk 😊</button>
+      </div>
+      <div id="response" class="response"></div>
+    </div>
+
+    <footer>
+      Made with courage & good intentions
+    </footer>
+  </div>
+
+  <script>
+    function sayYes() {
+      // CHANGE the phone number below to hers (include country code, no + sign)
+      const phoneNumber = '26079111936';
+
+      const message = encodeURIComponent("Yessssssssssssss! Let's goooooooo! 💖🥰 I can't wait.");
+
+      // WhatsApp redirect
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      // SMS fallback
+      const smsURL = `sms:${phoneNumber}?body=${message}`;
+
+      const response = document.getElementById('response');
+      response.textContent = "Yessssssssssssss! Let's goooooooo! 🤪🤩😍🥰";
+      response.classList.add('show');
+
+      setTimeout(() => {
+        window.location.href = whatsappURL;
+      }, 900);
+    }
+
+    function sayTalk() {
+      const response = document.getElementById('response');
+      response.textContent = "Totally fair. I’d love to talk whenever you’re ready.";
+      response.classList.add('show');
+    }
+
+    // Floating hearts generator
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = Math.random() > 0.5 ? '💖' : '✨';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7000);
+    }, 800);
+  </script>
+
+</body>
+</html>
